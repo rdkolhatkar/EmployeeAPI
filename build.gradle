@@ -6,13 +6,20 @@ buildscript {
 		cucumberJunitVersion = '7.15.0'
 		junitVersion = '4.13.1'
 		restAssuredVersion = '5.4.0'
-
+		springBeansVersion = '5.3.34'
 
 	}
 
 	dependencies {
 		classpath "net.serenity-bdd:serenity-gradle-plugin:${serenityCoreVersion}"
-
+	}
+	configurations.all{
+		resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+			if (details.requested.group == 'org.springframework' && details.requested.name.startsWith('spring-')) {
+				details.useVersion "${springBeansVersion}"
+				details.because 'Nexus IQ fix'
+			}
+		}
 	}
 }
 
@@ -38,6 +45,14 @@ buildscript {
 			scala.srcDir 'src/gatling/scala'
 			resources.srcDir 'src/gatling/resources'
 			compileClasspath += configurations.gatling
+		}
+	}
+	configurations.all{
+		resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+			if (details.requested.group == 'org.springframework' && details.requested.name.startsWith('spring-')) {
+				details.useVersion "${springBeansVersion}"
+				details.because 'Nexus IQ fix'
+			}
 		}
 	}
 	configurations {
@@ -100,6 +115,13 @@ dependencies {
 
 	}
 
+	configurations{
+		[apiElements, runtimeElements].each {
+			it.outgoing.artifacts.removeIf { it.buildDependencies.getDependencies(null).contains(jar)}
+			it.outgoing.artifact(bootJar)
+		}
+	}
+
 	task bddTest(type: Test) {
 		finalizedBy('aggregate')
 		group = 'verification'
@@ -121,6 +143,10 @@ dependencies {
 				"reports"
 		]
 	}
+
+jar{
+	enabled = false
+}
 
 allprojects{
 	apply plugin: 'java'
