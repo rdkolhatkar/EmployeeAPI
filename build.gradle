@@ -7,12 +7,15 @@ buildscript {
 		junitVersion = '4.13.1'
 		restAssuredVersion = '5.4.0'
 		springBeansVersion = '5.3.34'
+		gatlingVersion = '3.9.2'
+		scalaLibraryVersion = '2.13.12'
 
 	}
 
 	dependencies {
 		classpath "net.serenity-bdd:serenity-gradle-plugin:${serenityCoreVersion}"
 	}
+	/*
 	configurations.all{
 		resolutionStrategy.eachDependency { DependencyResolveDetails details ->
 			if (details.requested.group == 'org.springframework' && details.requested.name.startsWith('spring-')) {
@@ -21,6 +24,7 @@ buildscript {
 			}
 		}
 	}
+	*/
 }
 
 	plugins {
@@ -47,6 +51,7 @@ buildscript {
 			compileClasspath += configurations.gatling
 		}
 	}
+    /*
 	configurations.all{
 		resolutionStrategy.eachDependency { DependencyResolveDetails details ->
 			if (details.requested.group == 'org.springframework' && details.requested.name.startsWith('spring-')) {
@@ -55,14 +60,13 @@ buildscript {
 			}
 		}
 	}
+	*/
+
 	configurations {
 		bddImplementation.canBeResolved = true
 		bddImplementation.extendsFrom testImplementation
 		bddRuntime.extendsFrom testRuntime
-
 	}
-
-
 	group = 'com.ratnakar'
 	version = '0.0.1-SNAPSHOT'
 
@@ -109,9 +113,9 @@ dependencies {
 		bddImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
 
 		// Gatling and scala dependencies
-//		gatling "io.gatling:gatling-core:${gatlingVersion}"
-//		gatling "io.gatling.highcharts:gatling-charts-highcharts:${gatlingVersion}"
-//		gatling "org.scala-lang:scala-library:${scalaLibraryVersion}"
+		gatling "io.gatling:gatling-core:${gatlingVersion}"
+		gatling "io.gatling.highcharts:gatling-charts-highcharts:${gatlingVersion}"
+		gatling "org.scala-lang:scala-library:${scalaLibraryVersion}"
 
 	}
 
