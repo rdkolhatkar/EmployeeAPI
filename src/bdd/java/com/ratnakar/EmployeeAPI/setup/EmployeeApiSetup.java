@@ -27,7 +27,7 @@ public class EmployeeApiSetup {
     String EmployeeApiURl = appBaseUrl+EmployeeApiEndpoint;
 
     public void setJsonBodyData(String EmpName, String EmpId, String JobRole) throws IOException {
-        String strJsonFile = "E:\\Cognizant Internship\\API Assessment\\EmployeeAPI\\EmployeeAPI\\src\\bdd\\resources\\Json\\Body.json";
+        String strJsonFile = "src/bdd/resources/Json/Body.json";
         requestBody = mapper.readValue(new File(strJsonFile), RequestBody.class);
         requestBody.setEmployee_name(EmpName);
         requestBody.setEmployee_id(EmpId);
