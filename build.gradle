@@ -103,6 +103,7 @@ dependencies {
 
 		// Junit and Component testing dependencies
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testImplementation("junit:junit:${junitVersion}")
 
 		// Serenity and BDD dependencies
 		bddImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
@@ -113,6 +114,7 @@ dependencies {
 		bddImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
 
 		// Gatling and scala dependencies
+		compileOnly("io.gatling.highcharts:gatling-charts-highcharts:$gatlingVersion")
 		gatling "io.gatling:gatling-core:${gatlingVersion}"
 		gatling "io.gatling.highcharts:gatling-charts-highcharts:${gatlingVersion}"
 		gatling "org.scala-lang:scala-library:${scalaLibraryVersion}"
