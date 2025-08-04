@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class EmployeeResponseSetup {
     @Autowired
@@ -16,6 +18,7 @@ public class EmployeeResponseSetup {
     @Autowired
     EmployeeService employeeService;
 
+    // ✅ POST logic
     public ResponseEntity<EmployeeResponse> userRegistrationResponse(Employee employee) {
         String employee_id = employee.getEmployee_id();
         EmployeeResponse employeeResponse = new EmployeeResponse();
@@ -31,6 +34,27 @@ public class EmployeeResponseSetup {
             Eresponse.setMsg("Employee Already Exists");
             Eresponse.setEmployee_id(employee_id);
             return new ResponseEntity<EmployeeResponse>(Eresponse, HttpStatus.ACCEPTED);
+        }
+    }
+
+    // ✅ GET logic
+    public ResponseEntity<List<Employee>> getAllEmployeesResponse() {
+        List<Employee> employeeList = employeeRepository.findAll();
+        return new ResponseEntity<>(employeeList, HttpStatus.OK);
+    }
+
+    // ✅ DELETE logic
+    public ResponseEntity<EmployeeResponse> deleteEmployeeResponse(String employee_id) {
+        EmployeeResponse response = new EmployeeResponse();
+        if (employeeService.checkEmployeeAlreadyExists(employee_id)) {
+            employeeRepository.deleteById(employee_id);
+            response.setMsg("Employee with ID " + employee_id + " deleted successfully.");
+            response.setEmployee_id(employee_id);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            response.setMsg("Employee with ID " + employee_id + " not found.");
+            response.setEmployee_id(employee_id);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
     }
 }
