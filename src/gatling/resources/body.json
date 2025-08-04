@@ -1,5 +1,5 @@
 {
-  "employee_name" : "${employee_name}",
-  "employee_id" : "${employee_id}",
-  "job_role" : "${job_role}"
+  "employee_name": "${employee_name}",
+  "employee_id": "${employee_id}",
+  "job_role": "${job_role}"
 }

@@ -1,4 +1,4 @@
-package com.ratnakar.EmployeeAPI.controller;
+package com.ratnakar.EmployeeAPI.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,8 +41,6 @@ public class Employee {
     public void setJob_role(String job_role) {
         this.job_role = job_role;
     }
-
-
 
 
 }
