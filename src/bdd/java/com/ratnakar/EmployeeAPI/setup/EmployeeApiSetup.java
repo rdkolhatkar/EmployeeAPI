@@ -22,9 +22,9 @@ public class EmployeeApiSetup {
 
     EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
     String appBaseUrl = EnvironmentSpecificConfiguration.from(variables).getProperty("baseUrl");
-//    String appBaseUrl = "http://localhost:8090";
+    //    String appBaseUrl = "http://localhost:8090";
     String EmployeeApiEndpoint = "/addEmployee";
-    String EmployeeApiURl = appBaseUrl+EmployeeApiEndpoint;
+    String EmployeeApiURl = appBaseUrl + EmployeeApiEndpoint;
 
     public void setJsonBodyData(String EmpName, String EmpId, String JobRole) throws IOException {
         String strJsonFile = "src/bdd/resources/Json/Body.json";
@@ -39,15 +39,15 @@ public class EmployeeApiSetup {
                 .body(mapper.writeValueAsString(requestBody)).when().post(EmployeeApiURl).then().log().all();
     }
 
-   public void validateApiResponse(){
+    public void validateApiResponse() {
         ResponseBody response = apiResponse.extract().response().body();
-       System.out.println(response);
-   }
+        System.out.println(response);
+    }
 
-   public void validateResponseCode(){
-       int responseCode = apiResponse.extract().statusCode();
-       System.out.println(responseCode);
-   }
+    public void validateResponseCode() {
+        int responseCode = apiResponse.extract().statusCode();
+        System.out.println(responseCode);
+    }
 
 
 }

@@ -1,4 +1,4 @@
-package com.ratnakar.EmployeeAPI.controller;
+package com.ratnakar.EmployeeAPI.model;
 
 public class EmployeeResponse {
 

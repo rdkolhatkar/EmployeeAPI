@@ -12,9 +12,12 @@ public class DbConnection {
 
     EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
 
-    String url = EnvironmentSpecificConfiguration.from(variables).getProperty("spring.datasource.url");;
-    String username = EnvironmentSpecificConfiguration.from(variables).getProperty("spring.datasource.username");;
-    String password = EnvironmentSpecificConfiguration.from(variables).getProperty("spring.datasource.password");;
+    String url = EnvironmentSpecificConfiguration.from(variables).getProperty("spring.datasource.url");
+
+    String username = EnvironmentSpecificConfiguration.from(variables).getProperty("spring.datasource.username");
+
+    String password = EnvironmentSpecificConfiguration.from(variables).getProperty("spring.datasource.password");
+
 
     public Connection getDbConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
@@ -30,7 +33,7 @@ public class DbConnection {
 
     public ResultSet executeDbQuery(String EmpId) throws SQLException {
         Statement statement = dbConnection.createStatement();
-        ResultSet result = statement.executeQuery("SELECT * FROM employees.employeelist WHERE employee_id = "+"'"+EmpId+"'");
+        ResultSet result = statement.executeQuery("SELECT * FROM employees.employeelist WHERE employee_id = " + "'" + EmpId + "'");
         System.out.println(result);
 
         return result;

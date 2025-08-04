@@ -1,6 +1,7 @@
 package com.ratnakar.EmployeeAPI.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ratnakar.EmployeeAPI.model.Employee;
 import com.ratnakar.EmployeeAPI.repository.EmployeeRepository;
 import com.ratnakar.EmployeeAPI.service.EmployeeService;
 import org.junit.Test;
@@ -34,6 +35,7 @@ public class EmployeeApiControllerTest {
     @Test
     public void testAddNewEmployee() throws Exception {
         Employee employee = new Employee();
+        EmployeeService employeeService = new EmployeeService();
         employee.setEmployee_id("E001");
 
         // Mock service to say the employee does not already exist
@@ -41,7 +43,7 @@ public class EmployeeApiControllerTest {
 
         mockMvc.perform((RequestBuilder) post("/addEmployee")
                         .contentType(MediaType.APPLICATION_JSON)
-                .body(objectMapper.writeValueAsString(employee)))
+                        .body(objectMapper.writeValueAsString(employee)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.msg").value("Employee has been added successfully"))
                 .andExpect(jsonPath("$.employee_id").value("E001"));
