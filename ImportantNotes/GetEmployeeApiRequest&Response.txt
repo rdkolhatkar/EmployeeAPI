@@ -1,0 +1,23 @@
+HTTP Request : GET
+APP_BASE_URL : http://localhost:8090/api/employees
+Request Body :
+                {}
+Response Code : 200 OK
+Response Body :
+                [
+                    {
+                        "employee_name": "Suraj",
+                        "employee_id": "SJ123",
+                        "job_role": "Front-End Developer"
+                    },
+                    {
+                        "employee_name": "Rajesh",
+                        "employee_id": "RJ123",
+                        "job_role": "Back-End Developer"
+                    },
+                    {
+                        "employee_name": "Jayesh",
+                        "employee_id": "JS123",
+                        "job_role": "Software Tester"
+                    }
+                ]

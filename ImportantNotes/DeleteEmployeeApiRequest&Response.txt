@@ -1,0 +1,12 @@
+HTTP Request : DELETE
+APP_BASE_URL : http://localhost:8090/api/employee/delete/{employee_id}
+Example:
+API_APP_BASE_URL : http://localhost:8090/api/employee/delete/ND123
+Request Body :
+                {}
+Response Code : 200 OK
+Response Body :
+                {
+                    "msg": "Employee with ID ND123 deleted successfully.",
+                    "employee_id": "ND123"
+                }

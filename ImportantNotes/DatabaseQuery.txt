@@ -1,0 +1,4 @@
+CREATE SCHEMA `employeeapi`;
+use employeeapi;
+create table employeedetails (employee_name varchar(20), employee_id varchar(20), job_role varchar(20));
+select * from employeedetails;

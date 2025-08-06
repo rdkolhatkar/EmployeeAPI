@@ -1,0 +1,14 @@
+HTTP Request : POST
+APP_BASE_URL : http://localhost:8090/api/addEmployee
+Request Body :
+                {
+                    "employee_name": "Suraj",
+                    "employee_id": "SJ123",
+                    "job_role": "Front-End Developer"
+                }
+Response Code : 201 CREATED
+Response Body :
+                {
+                    "msg": "Employee Added Sucessfully",
+                    "employee_id": "SJ123"
+                }
