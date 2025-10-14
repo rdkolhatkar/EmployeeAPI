@@ -26,9 +26,7 @@ A simple RESTful Spring Boot application for managing employee records, includin
 ---
 
 ## 🏗️ Project Structure
-
----
-
+```
 📁 EmployeeAPI/
 ┣ 📂 src/
 ┃ ┣ 📂 main/
@@ -43,7 +41,7 @@ A simple RESTful Spring Boot application for managing employee records, includin
 ┃ ┗ 📂 test/                 # JUnit + Mockito tests
 ┣ ⚙️ build.gradle
 ┗ 📘 README.md
-
+```
 ```
 
 ## ⚙️ Prerequisites
