@@ -25,26 +25,24 @@ A simple RESTful Spring Boot application for managing employee records, includin
 
 ---
 
-## 📂 Project Structure
+## 🏗️ Project Structure
 
-EmployeeAPI/
-├── src/
-│   ├── main/
-│   │   ├── java/com/ratnakar/EmployeeAPI/
-│   │   │   ├── controller/     # REST API endpoints
-│   │   │   ├── model/          # Entities and DTOs (Data Models)
-│   │   │   ├── repository/     # JPA Repositories for database access
-│   │   │   ├── service/        # Business logic and service layer
-│   │   │   └── setup/          # Common response handling, exceptions, etc.
-│   │   └── resources/
-│   │       └── application.properties  # App-level configs (DB, server, etc.)
-│   └── test/                  # Unit & Integration tests (JUnit + Mockito)
-├── build.gradle               # Gradle build file (dependencies, tasks)
-└── README.md                  # Project overview and usage instructions
+📁 EmployeeAPI/
+┣ 📂 src/
+┃ ┣ 📂 main/
+┃ ┃ ┣ 📂 java/com/ratnakar/EmployeeAPI/
+┃ ┃ ┃ ┣ 📂 controller/       # REST endpoints
+┃ ┃ ┃ ┣ 📂 model/            # Entity classes
+┃ ┃ ┃ ┣ 📂 repository/       # JPA interfaces
+┃ ┃ ┃ ┣ 📂 service/          # Business logic
+┃ ┃ ┃ ┗ 📂 setup/            # Exception & response handling
+┃ ┃ ┗ 📂 resources/
+┃ ┃     ┗ 📝 application.properties
+┃ ┗ 📂 test/                 # JUnit + Mockito tests
+┣ ⚙️ build.gradle
+┗ 📘 README.md
 
-
-
----
+```
 
 ## ⚙️ Prerequisites
 
