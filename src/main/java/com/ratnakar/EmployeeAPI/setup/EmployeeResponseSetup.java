@@ -57,4 +57,44 @@ public class EmployeeResponseSetup {
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
     }
+
+    // ✅ PUT logic
+    public ResponseEntity<EmployeeResponse> updateEmployeeResponse(Employee employee) {
+        EmployeeResponse response = new EmployeeResponse();
+        String employee_id = employee.getEmployee_id();
+
+        if (employeeService.checkEmployeeAlreadyExists(employee_id)) {
+            employeeRepository.save(employee);
+            response.setMsg("Employee updated successfully");
+            response.setEmployee_id(employee_id);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            response.setMsg("Employee does not exist");
+            response.setEmployee_id(employee_id);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    // ✅ PATCH logic
+    public ResponseEntity<EmployeeResponse> updateEmployeeJobRoleResponse(
+            String employee_id, String jobRole) {
+
+        EmployeeResponse response = new EmployeeResponse();
+
+        if (employeeService.checkEmployeeAlreadyExists(employee_id)) {
+            Employee employee = employeeRepository.findById(employee_id).get();
+            employee.setJob_role(jobRole);
+            employeeRepository.save(employee);
+
+            response.setMsg("Employee job role updated successfully");
+            response.setEmployee_id(employee_id);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            response.setMsg("Employee does not exist");
+            response.setEmployee_id(employee_id);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 }

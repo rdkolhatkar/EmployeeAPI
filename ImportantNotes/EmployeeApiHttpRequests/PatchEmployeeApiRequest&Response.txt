@@ -1,0 +1,12 @@
+HTTP Request : PATCH (Partial Update Employee)
+APP_BASE_URL : http://localhost:8090/api/employee/update/jobRole/{employee_id}
+Request Body :
+                {
+                  "job_role": "Lead Tester"
+                }
+Response Code : 200 OK
+Response Body :
+                {
+                  "msg": "Employee job role updated successfully",
+                  "employee_id": "JS123"
+                }

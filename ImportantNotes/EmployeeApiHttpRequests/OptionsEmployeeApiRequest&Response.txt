@@ -1,0 +1,13 @@
+HTTP Request : OPTIONS – Allowed HTTP Methods
+APP_BASE_URL : http://localhost:8090/api/employees
+Request Body :
+                {
+                  "employee_name": "Suraj Kumar",
+                  "employee_id": "SJ123",
+                  "job_role": "Senior Front-End Developer"
+                }
+Response Code : 200 OK
+Response Body :
+Allow: GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
+
+                }

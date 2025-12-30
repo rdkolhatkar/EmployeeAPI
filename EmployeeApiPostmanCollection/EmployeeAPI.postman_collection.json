@@ -69,7 +69,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "deleteEmployee",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -78,7 +78,7 @@
 					"raw": "{}"
 				},
 				"url": {
-					"raw": "http://localhost:8090/api/employee/delete/ND123",
+					"raw": "http://localhost:8090/api/employee/delete/SJ123",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -88,7 +88,110 @@
 						"api",
 						"employee",
 						"delete",
-						"ND123"
+						"SJ123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEmployee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee_name\": \"Suraj\",\r\n    \"employee_id\": \"SJ123\",\r\n    \"job_role\": \"React Developer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/employee/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"employee",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkEmployeeExistence",
+			"request": {
+				"method": "HEAD",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/employee/SJ123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"employee",
+						"SJ123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allowedHttpMethods",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateJobRoleOnly",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"job_role\": \"Lead Tester\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/employee/update/jobRole/SJ123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"employee",
+						"update",
+						"jobRole",
+						"SJ123"
 					]
 				}
 			},

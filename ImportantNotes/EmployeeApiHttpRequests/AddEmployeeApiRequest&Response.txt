@@ -9,6 +9,6 @@ Request Body :
 Response Code : 201 CREATED
 Response Body :
                 {
-                    "msg": "Employee Added Sucessfully",
+                    "msg": "Employee Added Successfully",
                     "employee_id": "SJ123"
                 }

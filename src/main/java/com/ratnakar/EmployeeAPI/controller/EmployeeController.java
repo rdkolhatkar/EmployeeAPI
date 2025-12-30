@@ -36,4 +36,38 @@ public class EmployeeController {
     public ResponseEntity<EmployeeResponse> deleteEmployee(@PathVariable String employee_id) {
         return employeeResponseSetup.deleteEmployeeResponse(employee_id);
     }
+
+    @PutMapping("/api/employee/update")
+    public ResponseEntity<EmployeeResponse> updateEmployee(@RequestBody Employee employee) {
+        return employeeResponseSetup.updateEmployeeResponse(employee);
+    }
+
+    @PatchMapping("/api/employee/update/jobRole/{employee_id}")
+    public ResponseEntity<EmployeeResponse> updateJobRole(
+            @PathVariable String employee_id,
+            @RequestBody Employee employee) {
+
+        return employeeResponseSetup
+                .updateEmployeeJobRoleResponse(employee_id, employee.getJob_role());
+    }
+
+    @RequestMapping(value = "/api/employee/{employee_id}", method = RequestMethod.HEAD)
+    public ResponseEntity<Void> checkEmployeeExists(@PathVariable String employee_id) {
+
+        if (employeeService.checkEmployeeAlreadyExists(employee_id)) {
+            return ResponseEntity.ok().build();      // 200 OK, no body
+        } else {
+            return ResponseEntity.notFound().build(); // 404 NOT FOUND
+        }
+    }
+
+    @RequestMapping(
+            value = {"/api/employees", "/api/addEmployee", "/api/employee/**"},
+            method = RequestMethod.OPTIONS)
+    public ResponseEntity<Void> optionsEmployeeApi() {
+        return ResponseEntity.ok()
+                .header("Allow", "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS")
+                .build();
+    }
+
 }
