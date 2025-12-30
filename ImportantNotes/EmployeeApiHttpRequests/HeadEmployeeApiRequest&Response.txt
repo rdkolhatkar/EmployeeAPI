@@ -1,0 +1,7 @@
+HTTP Request : HEAD - Check Employee Exists (No Body)
+APP_BASE_URL : http://localhost:8090/api/employee/{employee_id}
+Response:
+| Condition  | Status          |
+| ---------- | --------------- |
+| Exists     | `200 OK`        |
+| Not Exists | `404 NOT FOUND` |

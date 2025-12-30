@@ -1,0 +1,19 @@
+HTTP Request : PUT
+APP_BASE_URL : http://localhost:8090/api/employee/update
+Request Body :
+                {
+                  "employee_name": "Suraj Kumar",
+                  "employee_id": "SJ123",
+                  "job_role": "Senior Front-End Developer"
+                }
+Response Code : 200 OK
+Response Body :
+                {
+                  "msg": "Employee updated successfully",
+                  "employee_id": "SJ123"
+                }
+Failure response : 404 NOT FOUND
+                {
+                  "msg": "Employee does not exist",
+                  "employee_id": "SJ123"
+                }
