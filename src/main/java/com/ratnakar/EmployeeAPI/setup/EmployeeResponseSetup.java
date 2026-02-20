@@ -26,7 +26,7 @@ public class EmployeeResponseSetup {
             employee.setEmployee_id(employee_id);
             employeeRepository.save(employee);
             EmployeeResponse Eresponse = new EmployeeResponse();
-            Eresponse.setMsg("Employee Added Sucessfully");
+            Eresponse.setMsg("Employee Added Successfully");
             Eresponse.setEmployee_id(employee_id);
             return new ResponseEntity<EmployeeResponse>(Eresponse, HttpStatus.CREATED);
         } else {

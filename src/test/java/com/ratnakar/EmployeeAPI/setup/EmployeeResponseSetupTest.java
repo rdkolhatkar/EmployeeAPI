@@ -37,7 +37,7 @@ public class EmployeeResponseSetupTest {
         ResponseEntity<EmployeeResponse> response = employeeResponseSetup.userRegistrationResponse(emp);
 
         assertEquals(201, response.getStatusCodeValue());
-        assertEquals("Employee Added Sucessfully", response.getBody().getMsg());
+        assertEquals("Employee Added Successfully", response.getBody().getMsg());
         assertEquals("EMP003", response.getBody().getEmployee_id());
     }
 
